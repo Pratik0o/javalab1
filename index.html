@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter (kg ⇄ lb)</title>
+</head>
+<body>
+    <h2>Unit Converter: Kilograms to Pounds & Pounds to Kilograms</h2>
+    <p>Open the console (F12) to interact with the program.</p>
+
+    <script>
+        // Function to convert kg to lb
+        function kgToLb(kg) {
+            return kg * 2.20462; // 1 kg = 2.20462 lb
+        }
+
+        // Function to convert lb to kg
+        function lbToKg(lb) {
+            return lb / 2.20462; // 1 lb = 0.453592 kg
+        }
+
+        let choice; // Variable to store user input
+
+        // Using a do...while loop to keep running the program until the user exits
+        do {
+            // Prompt user for choice and convert input to a number
+            choice = parseInt(prompt("Choose an option:\n1: Convert kg to lb\n2: Convert lb to kg\n3: Exit"));
+
+            // Validate input and perform conversions
+            if (choice === 1) {
+                let kg = parseFloat(prompt("Enter weight in kilograms:"));
+                if (!isNaN(kg) && kg >= 0) {
+                    alert(kg + " kg is equal to " + kgToLb(kg).toFixed(2) + " lb.");
+                } else {
+                    alert("Invalid input! Please enter a valid number.");
+                }
+            } 
+            else if (choice === 2) {
+                let lb = parseFloat(prompt("Enter weight in pounds:"));
+                if (!isNaN(lb) && lb >= 0) {
+                    alert(lb + " lb is equal to " + lbToKg(lb).toFixed(2) + " kg.");
+                } else {
+                    alert("Invalid input! Please enter a valid number.");
+                }
+            } 
+            else if (choice === 3) {
+                alert("Exiting program. Goodbye!");
+            } 
+            else {
+                alert("Invalid choice! Please enter 1, 2, or 3.");
+            }
+
+        } while (choice !== 3); // Continue loop until user chooses to exit
+
+    </script>
+</body>
+</html>
